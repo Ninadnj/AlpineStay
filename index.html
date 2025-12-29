@@ -8,6 +8,7 @@
     <meta name="description"
         content="A serene alpine sanctuary in Courchevel 1850. Ski-in access, refined luxury, and the silence of the French Alps.">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -21,13 +22,9 @@
                 <li><a href="#experience" class="nav-link">The Experience</a></li>
                 <li><a href="#residence" class="nav-link">The Residence</a></li>
                 <li><a href="#location" class="nav-link">Location</a></li>
-                <li><a href="#booking" class="btn btn-outline" style="padding: 0.5rem 1.75rem; font-size: 0.85rem;">Book
-                        Stay</a></li>
+                <li><a href="#booking" class="btn btn-outline nav-cta">Book Stay</a></li>
                 <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
+                        <i data-lucide="moon"></i>
                     </button></li>
             </ul>
         </div>
@@ -41,7 +38,7 @@
         <div class="container hero-content">
             <p class="hero-subtitle">Est. Courchevel 2024</p>
             <h1 class="text-display">Silence. Snow.<br>Sanctuary.</h1>
-            <p class="text-subtitle" style="margin: 2rem auto; color: rgba(255,255,255,0.85);">
+            <p class="text-subtitle">
                 A refined alpine retreat for those who seek the quiet luxury of the French Alps.
             </p>
         </div>
@@ -74,10 +71,7 @@
                 </div>
                 <div class="booking-btn-container">
                     <button class="btn-search" id="quickBookBtn" aria-label="Check Availability">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
+                        <i data-lucide="arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -87,26 +81,30 @@
     <!-- The Experience (About) -->
     <section id="experience" class="section">
         <div class="container">
-            <div class="about-grid">
+            <div class="grid grid-cols-2 items-center">
                 <div class="about-text">
-                    <h3 class="font-heading">Designed for Serenity</h3>
-                    <p class="text-subtitle" style="margin-bottom: 2rem; color: var(--color-text-secondary);">
+                    <h2 class="font-serif">Designed for Serenity</h2>
+                    <p class="text-subtitle">
                         Steps from the Jardin Alpin, yet worlds away from the noise. Our residence offers a
                         curated blend of modern minimalism and warm alpine texture in the heart of Courchevel 1850.
                     </p>
 
-                    <div class="feature-list">
+                    <div class="feature-grid grid grid-cols-2">
                         <div class="feature-pill">
-                            <span>🏔️ Valley Views</span>
+                            <i data-lucide="mountain"></i>
+                            <span>Valley Views</span>
                         </div>
                         <div class="feature-pill">
-                            <span>🎿 Ski-in / Ski-out</span>
+                            <i data-lucide="wind"></i>
+                            <span>Ski-in / Ski-out</span>
                         </div>
                         <div class="feature-pill">
-                            <span>🔥 Wood Fireplace</span>
+                            <i data-lucide="flame"></i>
+                            <span>Wood Fireplace</span>
                         </div>
                         <div class="feature-pill">
-                            <span>✨ Private Concierge</span>
+                            <i data-lucide="sparkles"></i>
+                            <span>Private Concierge</span>
                         </div>
                     </div>
                 </div>
@@ -118,11 +116,11 @@
     </section>
 
     <!-- The Residence (Gallery & Amenities) -->
-    <section id="residence" class="section" style="background-color: var(--color-surface);">
+    <section id="residence" class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>The Residence</h2>
-                <p class="text-subtitle" style="margin: 0 auto;">A visual journey through your mountain home.</p>
+                <p>A visual journey through your mountain home.</p>
             </div>
 
             <div class="gallery-grid">
@@ -140,27 +138,26 @@
                 </div>
             </div>
 
-            <div class="amenities-section"
-                style="margin-top: var(--spacing-2xl); padding: var(--spacing-xl) 0; background: transparent; border: none;">
+            <div class="amenities-section">
                 <div class="amenities-list">
                     <div class="amenity-minimal">
-                        <div class="icon">📶</div>
+                        <i data-lucide="wifi"></i>
                         <span>Fiber WiFi</span>
                     </div>
                     <div class="amenity-minimal">
-                        <div class="icon">☕</div>
+                        <i data-lucide="coffee"></i>
                         <span>Espresso Bar</span>
                     </div>
                     <div class="amenity-minimal">
-                        <div class="icon">🧺</div>
+                        <i data-lucide="briefcase"></i>
                         <span>Laundry</span>
                     </div>
                     <div class="amenity-minimal">
-                        <div class="icon">🚗</div>
+                        <i data-lucide="car"></i>
                         <span>Private Parking</span>
                     </div>
                     <div class="amenity-minimal">
-                        <div class="icon">🌿</div>
+                        <i data-lucide="leaf"></i>
                         <span>Eco-Certified</span>
                     </div>
                 </div>
@@ -170,36 +167,37 @@
 
     <!-- Location -->
     <section id="location" class="section">
-        <div class="container">
-            <div class="location-grid">
+        <div class="container container-wide">
+            <div class="grid grid-cols-2 items-stretch">
                 <div class="location-details">
-                    <div>
+                    <div class="section-header">
                         <h2>Prime Location</h2>
-                        <p class="text-subtitle">Jardin Alpin, Courchevel 1850</p>
+                        <p>Jardin Alpin, Courchevel 1850</p>
                     </div>
 
-                    <div class="location-item">
-                        <h4>The Slopes</h4>
-                        <p>Jardin Alpin Gondola — Ski-in/Ski-out</p>
-                        <p>La Saulire — Direct Access</p>
+                    <div class="location-list">
+                        <div class="location-item">
+                            <h4>The Slopes</h4>
+                            <p>Jardin Alpin Gondola — Ski-in/Ski-out</p>
+                            <p>La Saulire — Direct Access</p>
+                        </div>
+
+                        <div class="location-item">
+                            <h4>The Village</h4>
+                            <p>La Croisette — 5 min ski / 10 min walk</p>
+                            <p>Luxury Boutiques — 8 min walk</p>
+                        </div>
                     </div>
 
-                    <div class="location-item">
-                        <h4>The Village</h4>
-                        <p>La Croisette — 5 min ski / 10 min walk</p>
-                        <p>Luxury Boutiques — 8 min walk</p>
-                    </div>
-
-                    <a href="https://goo.gl/maps/courchevel" target="_blank" class="btn btn-outline"
-                        style="display:inline-flex; align-self: start; color: var(--color-text); border-color: var(--color-border); padding: 0.75rem 1.5rem;">
+                    <a href="https://goo.gl/maps/courchevel" target="_blank" class="btn btn-outline">
                         View on Map
                     </a>
                 </div>
                 <div class="map-wrapper">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11174.5!2d6.634!3d45.415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478999a0a0a0a0a0%3A0x0!2sCourchevel!5e0!3m2!1sen!2sfr!4v1620000000000"
-                        width="100%" height="100%" style="border:0; filter: grayscale(100%) contrast(0.9);"
-                        allowfullscreen="" loading="lazy">
+                        width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                        aria-hidden="false" tabindex="0">
                     </iframe>
                 </div>
             </div>
@@ -207,11 +205,11 @@
     </section>
 
     <!-- Booking -->
-    <section id="booking" class="section" style="background-color: var(--color-surface);">
-        <div class="container booking-container">
-            <div class="section-header">
+    <section id="booking" class="section section-alt">
+        <div class="container">
+            <div class="section-header text-center">
                 <h2>Reserve Your Sanctuary</h2>
-                <p class="text-subtitle" style="margin: 0 auto;">Select your dates to begin your journey.</p>
+                <p>Select your dates to begin your journey.</p>
             </div>
 
             <div class="calendar-wrapper">
@@ -233,14 +231,13 @@
 
                 <div class="booking-summary-bar">
                     <div class="booking-info">
-                        <div class="booking-dates-summary"
-                            style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.25rem;">
+                        <div class="booking-dates-summary">
                             <span id="summaryCheckIn">Select Dates</span> — <span id="summaryCheckOut"></span>
                         </div>
-                        <span class="text-subtitle" style="font-size: 0.9rem;">Total for Stay</span>
+                        <span class="text-label">Total for Stay</span>
                         <div class="summary-total" id="summaryTotal">€0</div>
                     </div>
-                    <button class="btn" id="instantBookBtn">Request Booking</button>
+                    <button class="btn btn-primary" id="instantBookBtn">Request Booking</button>
                 </div>
             </div>
         </div>
@@ -265,16 +262,14 @@
     </footer>
 
     <!-- Booking Confirmation Modal -->
-    <div class="modal" id="bookingModal"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+    <div class="modal" id="bookingModal">
         <div class="modal-content">
-            <div class="modal-icon">🏔️</div>
+            <div class="modal-icon">
+                <i data-lucide="check-circle" style="width: 48px; height: 48px; color: var(--color-text-main);"></i>
+            </div>
             <h3>Request Received</h3>
-            <p id="modalMessage" style="margin: 1.5rem 0; color: var(--color-text-secondary);">We are reviewing your
-                dates.</p>
-            <button class="btn btn-outline" id="closeModal"
-                style="width: 100%; border-color: var(--color-border); color: var(--color-text); margin-top: 1rem;">Return
-                to Site</button>
+            <p id="modalMessage">We are reviewing your dates.</p>
+            <button class="btn btn-outline" id="closeModal">Return to Site</button>
         </div>
     </div>
 

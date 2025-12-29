@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Lucide Icons
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
     // ========================================
     // CONTEXT AWARE PERSONALIZATION
     // ========================================
     const initPersonalization = () => {
         const month = new Date().getMonth();
         const heroSubtitle = document.querySelector('.hero-subtitle');
-        const seasonText = document.querySelector('.text-display');
-
         if (!heroSubtitle) return;
 
-        // Subtle, context-aware messaging
-        if (month >= 11 || month <= 2) {
-            // Winter
-            heroSubtitle.textContent = 'Winter Season 2025';
-            // We keep the main text static for stability, but could dynamic it
-        } else if (month >= 5 && month <= 7) {
-            // Summer
-            heroSubtitle.textContent = 'Alpine Summer Retreat';
-        } else {
-            // Shoulder Season
-            heroSubtitle.textContent = 'The Mountain Sanctuary';
-        }
+        const seasons = {
+            winter: [11, 0, 1],
+            spring: [2, 3, 4],
+            summer: [5, 6, 7],
+            autumn: [8, 9, 10]
+        };
+
+        if (seasons.winter.includes(month)) heroSubtitle.textContent = 'Winter Season 2024';
+        else if (seasons.summer.includes(month)) heroSubtitle.textContent = 'Alpine Summer Retreat';
+        else heroSubtitle.textContent = 'The Mountain Sanctuary';
     };
     initPersonalization();
 
@@ -50,35 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // CINEMATIC SCROLL REVEALS
     // ========================================
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
     };
 
-    const displayOnScroll = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                // Optional: Stop observing once revealed for static feel
-                displayOnScroll.unobserve(entry.target);
+                revealObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Add animation classes to elements
-    const animatedElements = document.querySelectorAll('.about-text, .about-image-container, .gallery-item, .location-details, .map-wrapper');
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `all 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`; // Staggered
-        displayOnScroll.observe(el);
+    document.querySelectorAll('.section, .gallery-item, .feature-pill, .location-item').forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
     });
 
-    // CSS class to trigger the transition
+    // CSS for reveal
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `
-        .in-view {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
     `;
     document.head.appendChild(styleSheet);
