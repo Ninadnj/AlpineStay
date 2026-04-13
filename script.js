@@ -51,21 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
+                // Don't unobserve immediately if we want to add delays, or we can just let css handle it
                 revealObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.section, .gallery-item, .feature-pill, .location-item').forEach(el => {
-        el.classList.add('reveal');
-        revealObserver.observe(el);
+    // Apply staggered delays to elements inside sections
+    document.querySelectorAll('section').forEach(section => {
+        const revealElements = section.querySelectorAll('h2, h3, p, .gallery-item, .feature-pill, .location-item, .about-image-container img, .amenity-minimal');
+        revealElements.forEach((el, index) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${index * 0.1}s`;
+            revealObserver.observe(el);
+        });
     });
 
     // CSS for reveal
@@ -73,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     styleSheet.innerText = `
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.2, 0, 0, 1);
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .reveal.in-view {
             opacity: 1;
